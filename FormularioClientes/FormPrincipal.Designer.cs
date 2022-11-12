@@ -55,90 +55,115 @@
             this.ColumnDireccion,
             this.ColumnTelefono,
             this.ColumnEmail});
-            this.dgv.Location = new System.Drawing.Point(31, 161);
+            this.dgv.Location = new System.Drawing.Point(46, 248);
+            this.dgv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(846, 150);
+            this.dgv.RowHeadersWidth = 62;
+            this.dgv.Size = new System.Drawing.Size(1269, 231);
             this.dgv.TabIndex = 0;
             this.dgv.DoubleClick += new System.EventHandler(this.dgv_DoubleClick);
             // 
             // ColumnNombre
             // 
             this.ColumnNombre.HeaderText = "Nombre";
+            this.ColumnNombre.MinimumWidth = 8;
             this.ColumnNombre.Name = "ColumnNombre";
+            this.ColumnNombre.Width = 150;
             // 
             // ColumnApellidos
             // 
             this.ColumnApellidos.HeaderText = "Apellidos";
+            this.ColumnApellidos.MinimumWidth = 8;
             this.ColumnApellidos.Name = "ColumnApellidos";
+            this.ColumnApellidos.Width = 150;
             // 
             // ColumnSexo
             // 
             this.ColumnSexo.HeaderText = "Sexo";
+            this.ColumnSexo.MinimumWidth = 8;
             this.ColumnSexo.Name = "ColumnSexo";
+            this.ColumnSexo.Width = 150;
             // 
             // ColumnFechaNacimiento
             // 
             this.ColumnFechaNacimiento.HeaderText = "Fecha de Nacimiento";
+            this.ColumnFechaNacimiento.MinimumWidth = 8;
             this.ColumnFechaNacimiento.Name = "ColumnFechaNacimiento";
+            this.ColumnFechaNacimiento.Width = 150;
             // 
             // ColumnTipoDocumento
             // 
             this.ColumnTipoDocumento.HeaderText = "Tipo de Documento";
+            this.ColumnTipoDocumento.MinimumWidth = 8;
             this.ColumnTipoDocumento.Name = "ColumnTipoDocumento";
+            this.ColumnTipoDocumento.Width = 150;
             // 
             // ColumnDireccion
             // 
             this.ColumnDireccion.HeaderText = "Dirección";
+            this.ColumnDireccion.MinimumWidth = 8;
             this.ColumnDireccion.Name = "ColumnDireccion";
+            this.ColumnDireccion.Width = 150;
             // 
             // ColumnTelefono
             // 
             this.ColumnTelefono.HeaderText = "Teléfono";
+            this.ColumnTelefono.MinimumWidth = 8;
             this.ColumnTelefono.Name = "ColumnTelefono";
+            this.ColumnTelefono.Width = 150;
             // 
             // ColumnEmail
             // 
             this.ColumnEmail.HeaderText = "E-mail";
+            this.ColumnEmail.MinimumWidth = 8;
             this.ColumnEmail.Name = "ColumnEmail";
+            this.ColumnEmail.Width = 150;
             // 
             // lbListadoClientes
             // 
             this.lbListadoClientes.AutoSize = true;
-            this.lbListadoClientes.Location = new System.Drawing.Point(389, 42);
+            this.lbListadoClientes.Location = new System.Drawing.Point(584, 65);
+            this.lbListadoClientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbListadoClientes.Name = "lbListadoClientes";
-            this.lbListadoClientes.Size = new System.Drawing.Size(81, 13);
+            this.lbListadoClientes.Size = new System.Drawing.Size(122, 20);
             this.lbListadoClientes.TabIndex = 1;
             this.lbListadoClientes.Text = "Listado Clientes";
             // 
             // btNuevoCliente
             // 
-            this.btNuevoCliente.Location = new System.Drawing.Point(205, 98);
+            this.btNuevoCliente.Location = new System.Drawing.Point(308, 151);
+            this.btNuevoCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btNuevoCliente.Name = "btNuevoCliente";
-            this.btNuevoCliente.Size = new System.Drawing.Size(141, 23);
+            this.btNuevoCliente.Size = new System.Drawing.Size(212, 35);
             this.btNuevoCliente.TabIndex = 2;
             this.btNuevoCliente.Text = "Nuevo Cliente";
             this.btNuevoCliente.UseVisualStyleBackColor = true;
+            this.btNuevoCliente.Click += new System.EventHandler(this.btNuevoCliente_Click);
             // 
             // btEliminarCliente
             // 
-            this.btEliminarCliente.Location = new System.Drawing.Point(498, 99);
+            this.btEliminarCliente.Location = new System.Drawing.Point(747, 152);
+            this.btEliminarCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btEliminarCliente.Name = "btEliminarCliente";
-            this.btEliminarCliente.Size = new System.Drawing.Size(155, 23);
+            this.btEliminarCliente.Size = new System.Drawing.Size(232, 35);
             this.btEliminarCliente.TabIndex = 3;
             this.btEliminarCliente.Text = "Eliminar Cliente";
             this.btEliminarCliente.UseVisualStyleBackColor = true;
+            this.btEliminarCliente.Click += new System.EventHandler(this.btEliminarCliente_Click);
             // 
             // FormPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1022, 450);
+            this.ClientSize = new System.Drawing.Size(1533, 692);
             this.Controls.Add(this.btEliminarCliente);
             this.Controls.Add(this.btNuevoCliente);
             this.Controls.Add(this.lbListadoClientes);
             this.Controls.Add(this.dgv);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormPrincipal";
             this.Text = "FormPrincipal";
+            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
