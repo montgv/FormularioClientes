@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,11 @@ namespace FormularioClientes
         public FormPrincipal()
         {
             InitializeComponent();
+
+            //Cambiamos el color de fondo, el color y el tipo de la letra al formulario
+            BackColor = Color.FromArgb(184, 240, 237);
+            ForeColor = Color.FromArgb(222, 120, 125);
+            Font = new Font("Comic Sans MS", 11, FontStyle.Bold);
         }
 
         /*
@@ -26,14 +32,15 @@ namespace FormularioClientes
             {
                 DataGridViewRow fila = new DataGridViewRow();
                 fila.CreateCells(dgv);
-                fila.Cells[0].Value = "Carlos";
-                fila.Cells[1].Value = "Perez Aguado";
-                fila.Cells[2].Value = "Hombre";
-                fila.Cells[3].Value = "05/11/1989";
-                fila.Cells[4].Value = "75693545P";
-                fila.Cells[5].Value = "685987456";
-                fila.Cells[6].Value = "C/Pez, nº3";
-                fila.Cells[7].Value = "carlospa@gmail.com";
+                fila.Cells[0].Value = "Tipo A";
+                fila.Cells[1].Value = "Carlos";
+                fila.Cells[2].Value = "Perez Aguado";
+                fila.Cells[3].Value = "Hombre";
+                fila.Cells[4].Value = "05/11/1989";
+                fila.Cells[5].Value = "75693545P";
+                fila.Cells[6].Value = "685987456";
+                fila.Cells[7].Value = "C/Pez, nº3";
+                fila.Cells[8].Value = "carlospa@gmail.com";
                 dgv.Rows.Add(fila);
             }
 
@@ -41,14 +48,15 @@ namespace FormularioClientes
             {
                 DataGridViewRow fila = new DataGridViewRow();
                 fila.CreateCells(dgv);
-                fila.Cells[0].Value = "Maria";
-                fila.Cells[1].Value = "Anguis Jimenez";
-                fila.Cells[2].Value = "Mujer";
-                fila.Cells[3].Value = "15/01/1967";
-                fila.Cells[4].Value = "23695445C";
-                fila.Cells[5].Value = "645982156";
-                fila.Cells[6].Value = "C/Langosta, nº20";
-                fila.Cells[7].Value = "mariaaj@gmail.com";
+                fila.Cells[0].Value = "Tipo B";
+                fila.Cells[1].Value = "Maria";
+                fila.Cells[2].Value = "Anguis Jimenez";
+                fila.Cells[3].Value = "Mujer";
+                fila.Cells[4].Value = "15/01/1967";
+                fila.Cells[5].Value = "23695445C";
+                fila.Cells[6].Value = "645982156";
+                fila.Cells[7].Value = "C/Langosta, nº20";
+                fila.Cells[8].Value = "mariaaj@gmail.com";
                 dgv.Rows.Add(fila);
             }
 
@@ -56,14 +64,15 @@ namespace FormularioClientes
             {
                 DataGridViewRow fila = new DataGridViewRow();
                 fila.CreateCells(dgv);
-                fila.Cells[0].Value = "Hugo";
-                fila.Cells[1].Value = "Valero Sanchez";
-                fila.Cells[2].Value = "Hombre";
-                fila.Cells[3].Value = "25/05/1995";
-                fila.Cells[4].Value = "15563895L";
-                fila.Cells[5].Value = "612934456";
-                fila.Cells[6].Value = "C/Dorada, nº15";
-                fila.Cells[7].Value = "hugovs@gmail.com";
+                fila.Cells[0].Value = "Tipo C";
+                fila.Cells[1].Value = "Hugo";
+                fila.Cells[2].Value = "Valero Sanchez";
+                fila.Cells[3].Value = "Hombre";
+                fila.Cells[4].Value = "25/05/1995";
+                fila.Cells[5].Value = "15563895L";
+                fila.Cells[6].Value = "612934456";
+                fila.Cells[7].Value = "C/Dorada, nº15";
+                fila.Cells[8].Value = "hugovs@gmail.com";
                 dgv.Rows.Add(fila);
             }
         }
@@ -72,6 +81,20 @@ namespace FormularioClientes
         {
             //Llamamos a la función para que nos genere los datos del datagridview
             datosIniciales(2);
+
+            Estilos estilo = new Estilos(this.dgv);
+
+            //Introducimos los diferetentes estilos
+            estilo.definirFilas("#7adcd5", "#b8575e", "#50b4ad", "----------");
+            estilo.definirCabecera("#7adcd5", "#50b4ad");
+            estilo.definirFilarAlternas("#de787d", "#7adcd5", "**********");
+
+            //Ajustamos el tamño de todas las columnas
+            foreach (DataGridViewColumn dgvColumna in this.dgv.Columns)
+            {
+                dgvColumna.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            }
+
         }
 
         /*
@@ -106,7 +129,36 @@ namespace FormularioClientes
          */
         private void btNuevoCliente_Click(object sender, EventArgs e)
         {
+            FormSecundario formSecundario = new FormSecundario(ref dgv);
+            formSecundario.Show();
+        }
 
+        private void dgv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dgv.Columns[e.ColumnIndex].Name == "ColumnTipoCliente")
+            {
+                if (e.Value != null)
+                {
+                    if (e.Value.ToString() == "Tipo A")
+                    {
+                        e.CellStyle.BackColor = Color.White;
+                        e.CellStyle.ForeColor = Color.FromArgb(184, 87, 94);
+                        e.CellStyle.Font = new Font("Comic Sans MS", 12, FontStyle.Underline);
+                    }
+                    if (e.Value.ToString() == "Tipo B")
+                    {
+                        e.CellStyle.BackColor = Color.White;
+                        e.CellStyle.ForeColor = Color.FromArgb(80, 180, 173);
+                        e.CellStyle.Font = new Font("Comic Sans MS", 12, FontStyle.Underline);
+                    }
+                    if (e.Value.ToString() == "Tipo C")
+                    {
+                        e.CellStyle.BackColor = Color.White;
+                        e.CellStyle.ForeColor = Color.FromArgb(222, 120, 125);
+                        e.CellStyle.Font = new Font("Comic Sans MS", 12, FontStyle.Underline);
+                    }
+                }
+            }
         }
     }
 }

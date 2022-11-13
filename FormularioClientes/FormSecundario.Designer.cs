@@ -38,24 +38,24 @@
             this.lbTelefono = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
             this.btGuardar = new System.Windows.Forms.Button();
-            this.btEliminar = new System.Windows.Forms.Button();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.tbApellidos = new System.Windows.Forms.TextBox();
             this.pbCompletado = new System.Windows.Forms.ProgressBar();
             this.rbHombre = new System.Windows.Forms.RadioButton();
             this.rbMujer = new System.Windows.Forms.RadioButton();
-            this.cbTipoDocumento = new System.Windows.Forms.ComboBox();
             this.tbDireccion = new System.Windows.Forms.TextBox();
             this.tbTelefono = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
-            this.mtbTipoDocumento = new System.Windows.Forms.MaskedTextBox();
+            this.mtbDni = new System.Windows.Forms.MaskedTextBox();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.lbTipoCliente = new System.Windows.Forms.Label();
+            this.cbTipoCliente = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lbMantenimientoCliente
             // 
             this.lbMantenimientoCliente.AutoSize = true;
-            this.lbMantenimientoCliente.Location = new System.Drawing.Point(256, 46);
+            this.lbMantenimientoCliente.Location = new System.Drawing.Point(137, 30);
             this.lbMantenimientoCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMantenimientoCliente.Name = "lbMantenimientoCliente";
             this.lbMantenimientoCliente.Size = new System.Drawing.Size(167, 20);
@@ -65,7 +65,7 @@
             // lbNombre
             // 
             this.lbNombre.AutoSize = true;
-            this.lbNombre.Location = new System.Drawing.Point(38, 118);
+            this.lbNombre.Location = new System.Drawing.Point(38, 134);
             this.lbNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNombre.Name = "lbNombre";
             this.lbNombre.Size = new System.Drawing.Size(65, 20);
@@ -75,7 +75,7 @@
             // lbApellidos
             // 
             this.lbApellidos.AutoSize = true;
-            this.lbApellidos.Location = new System.Drawing.Point(38, 166);
+            this.lbApellidos.Location = new System.Drawing.Point(40, 187);
             this.lbApellidos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbApellidos.Name = "lbApellidos";
             this.lbApellidos.Size = new System.Drawing.Size(73, 20);
@@ -85,7 +85,7 @@
             // lbSexo
             // 
             this.lbSexo.AutoSize = true;
-            this.lbSexo.Location = new System.Drawing.Point(38, 212);
+            this.lbSexo.Location = new System.Drawing.Point(40, 236);
             this.lbSexo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSexo.Name = "lbSexo";
             this.lbSexo.Size = new System.Drawing.Size(45, 20);
@@ -95,7 +95,7 @@
             // lbFechaNacimiento
             // 
             this.lbFechaNacimiento.AutoSize = true;
-            this.lbFechaNacimiento.Location = new System.Drawing.Point(42, 259);
+            this.lbFechaNacimiento.Location = new System.Drawing.Point(40, 292);
             this.lbFechaNacimiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbFechaNacimiento.Name = "lbFechaNacimiento";
             this.lbFechaNacimiento.Size = new System.Drawing.Size(159, 20);
@@ -105,7 +105,7 @@
             // lbTipoDocumento
             // 
             this.lbTipoDocumento.AutoSize = true;
-            this.lbTipoDocumento.Location = new System.Drawing.Point(38, 299);
+            this.lbTipoDocumento.Location = new System.Drawing.Point(40, 345);
             this.lbTipoDocumento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTipoDocumento.Name = "lbTipoDocumento";
             this.lbTipoDocumento.Size = new System.Drawing.Size(161, 20);
@@ -115,7 +115,7 @@
             // lbDireccion
             // 
             this.lbDireccion.AutoSize = true;
-            this.lbDireccion.Location = new System.Drawing.Point(38, 410);
+            this.lbDireccion.Location = new System.Drawing.Point(36, 447);
             this.lbDireccion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDireccion.Name = "lbDireccion";
             this.lbDireccion.Size = new System.Drawing.Size(75, 20);
@@ -125,7 +125,7 @@
             // lbTelefono
             // 
             this.lbTelefono.AutoSize = true;
-            this.lbTelefono.Location = new System.Drawing.Point(42, 352);
+            this.lbTelefono.Location = new System.Drawing.Point(40, 395);
             this.lbTelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTelefono.Name = "lbTelefono";
             this.lbTelefono.Size = new System.Drawing.Size(71, 20);
@@ -135,7 +135,7 @@
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(38, 467);
+            this.lbEmail.Location = new System.Drawing.Point(38, 500);
             this.lbEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(53, 20);
@@ -144,131 +144,146 @@
             // 
             // btGuardar
             // 
-            this.btGuardar.Location = new System.Drawing.Point(933, 111);
+            this.btGuardar.BackColor = System.Drawing.SystemColors.Window;
+            this.btGuardar.Location = new System.Drawing.Point(370, 23);
             this.btGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btGuardar.Name = "btGuardar";
             this.btGuardar.Size = new System.Drawing.Size(112, 35);
             this.btGuardar.TabIndex = 9;
             this.btGuardar.Text = "Guardar";
-            this.btGuardar.UseVisualStyleBackColor = true;
+            this.btGuardar.UseVisualStyleBackColor = false;
             this.btGuardar.Click += new System.EventHandler(this.btGuardar_Click);
-            // 
-            // btEliminar
-            // 
-            this.btEliminar.Location = new System.Drawing.Point(933, 197);
-            this.btEliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btEliminar.Name = "btEliminar";
-            this.btEliminar.Size = new System.Drawing.Size(112, 35);
-            this.btEliminar.TabIndex = 10;
-            this.btEliminar.Text = "Eliminar";
-            this.btEliminar.UseVisualStyleBackColor = true;
             // 
             // tbNombre
             // 
-            this.tbNombre.Location = new System.Drawing.Point(261, 106);
+            this.tbNombre.Location = new System.Drawing.Point(260, 134);
             this.tbNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(148, 26);
             this.tbNombre.TabIndex = 11;
+            this.tbNombre.TextChanged += new System.EventHandler(this.tbNombre_TextChanged);
             // 
             // tbApellidos
             // 
-            this.tbApellidos.Location = new System.Drawing.Point(261, 154);
+            this.tbApellidos.Location = new System.Drawing.Point(260, 187);
             this.tbApellidos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbApellidos.Name = "tbApellidos";
             this.tbApellidos.Size = new System.Drawing.Size(148, 26);
             this.tbApellidos.TabIndex = 12;
+            this.tbApellidos.TextChanged += new System.EventHandler(this.tbApellidos_TextChanged);
             // 
             // pbCompletado
             // 
-            this.pbCompletado.Location = new System.Drawing.Point(42, 540);
+            this.pbCompletado.Location = new System.Drawing.Point(40, 546);
+            this.pbCompletado.Maximum = 9;
             this.pbCompletado.Name = "pbCompletado";
-            this.pbCompletado.Size = new System.Drawing.Size(459, 23);
+            this.pbCompletado.Size = new System.Drawing.Size(440, 23);
             this.pbCompletado.TabIndex = 13;
             // 
             // rbHombre
             // 
             this.rbHombre.AutoSize = true;
-            this.rbHombre.Location = new System.Drawing.Point(260, 207);
+            this.rbHombre.Location = new System.Drawing.Point(260, 236);
             this.rbHombre.Name = "rbHombre";
             this.rbHombre.Size = new System.Drawing.Size(91, 24);
             this.rbHombre.TabIndex = 14;
             this.rbHombre.TabStop = true;
             this.rbHombre.Text = "Hombre";
             this.rbHombre.UseVisualStyleBackColor = true;
+            this.rbHombre.CheckedChanged += new System.EventHandler(this.rbHombre_CheckedChanged);
             // 
             // rbMujer
             // 
             this.rbMujer.AutoSize = true;
-            this.rbMujer.Location = new System.Drawing.Point(375, 207);
+            this.rbMujer.Location = new System.Drawing.Point(375, 236);
             this.rbMujer.Name = "rbMujer";
             this.rbMujer.Size = new System.Drawing.Size(73, 24);
             this.rbMujer.TabIndex = 15;
             this.rbMujer.TabStop = true;
             this.rbMujer.Text = "Mujer";
             this.rbMujer.UseVisualStyleBackColor = true;
-            // 
-            // cbTipoDocumento
-            // 
-            this.cbTipoDocumento.FormattingEnabled = true;
-            this.cbTipoDocumento.Location = new System.Drawing.Point(292, 296);
-            this.cbTipoDocumento.Name = "cbTipoDocumento";
-            this.cbTipoDocumento.Size = new System.Drawing.Size(22, 28);
-            this.cbTipoDocumento.TabIndex = 17;
+            this.rbMujer.CheckedChanged += new System.EventHandler(this.rbMujer_CheckedChanged);
             // 
             // tbDireccion
             // 
-            this.tbDireccion.Location = new System.Drawing.Point(260, 404);
+            this.tbDireccion.Location = new System.Drawing.Point(260, 447);
             this.tbDireccion.Name = "tbDireccion";
             this.tbDireccion.Size = new System.Drawing.Size(222, 26);
             this.tbDireccion.TabIndex = 19;
+            this.tbDireccion.TextChanged += new System.EventHandler(this.tbDireccion_TextChanged);
             // 
             // tbTelefono
             // 
-            this.tbTelefono.Location = new System.Drawing.Point(261, 352);
+            this.tbTelefono.Location = new System.Drawing.Point(260, 395);
             this.tbTelefono.Name = "tbTelefono";
             this.tbTelefono.Size = new System.Drawing.Size(100, 26);
             this.tbTelefono.TabIndex = 20;
+            this.tbTelefono.TextChanged += new System.EventHandler(this.tbTelefono_TextChanged);
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(260, 467);
+            this.tbEmail.Location = new System.Drawing.Point(260, 500);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(222, 26);
             this.tbEmail.TabIndex = 21;
+            this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             // 
-            // mtbTipoDocumento
+            // mtbDni
             // 
-            this.mtbTipoDocumento.Location = new System.Drawing.Point(360, 296);
-            this.mtbTipoDocumento.Mask = "00000000L";
-            this.mtbTipoDocumento.Name = "mtbTipoDocumento";
-            this.mtbTipoDocumento.Size = new System.Drawing.Size(100, 26);
-            this.mtbTipoDocumento.TabIndex = 22;
+            this.mtbDni.Location = new System.Drawing.Point(260, 345);
+            this.mtbDni.Mask = "00000000L";
+            this.mtbDni.Name = "mtbDni";
+            this.mtbDni.Size = new System.Drawing.Size(100, 26);
+            this.mtbDni.TabIndex = 22;
+            this.mtbDni.MaskChanged += new System.EventHandler(this.mtbDni_MaskChanged);
             // 
             // dtpFechaNacimiento
             // 
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(260, 253);
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(260, 292);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(200, 26);
             this.dtpFechaNacimiento.TabIndex = 23;
+            this.dtpFechaNacimiento.ValueChanged += new System.EventHandler(this.dtpFechaNacimiento_ValueChanged);
+            // 
+            // lbTipoCliente
+            // 
+            this.lbTipoCliente.AutoSize = true;
+            this.lbTipoCliente.Location = new System.Drawing.Point(38, 86);
+            this.lbTipoCliente.Name = "lbTipoCliente";
+            this.lbTipoCliente.Size = new System.Drawing.Size(92, 20);
+            this.lbTipoCliente.TabIndex = 24;
+            this.lbTipoCliente.Text = "Tipo Cliente";
+            // 
+            // cbTipoCliente
+            // 
+            this.cbTipoCliente.FormattingEnabled = true;
+            this.cbTipoCliente.Items.AddRange(new object[] {
+            "Tipo A",
+            "Tipo B",
+            "Tipo C"});
+            this.cbTipoCliente.Location = new System.Drawing.Point(260, 86);
+            this.cbTipoCliente.Name = "cbTipoCliente";
+            this.cbTipoCliente.Size = new System.Drawing.Size(121, 28);
+            this.cbTipoCliente.TabIndex = 25;
+            this.cbTipoCliente.SelectedIndexChanged += new System.EventHandler(this.cbTipoCliente_SelectedIndexChanged);
             // 
             // FormSecundario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(552, 606);
+            this.Controls.Add(this.cbTipoCliente);
+            this.Controls.Add(this.lbTipoCliente);
             this.Controls.Add(this.dtpFechaNacimiento);
-            this.Controls.Add(this.mtbTipoDocumento);
+            this.Controls.Add(this.mtbDni);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbTelefono);
             this.Controls.Add(this.tbDireccion);
-            this.Controls.Add(this.cbTipoDocumento);
             this.Controls.Add(this.rbMujer);
             this.Controls.Add(this.rbHombre);
             this.Controls.Add(this.pbCompletado);
             this.Controls.Add(this.tbApellidos);
             this.Controls.Add(this.tbNombre);
-            this.Controls.Add(this.btEliminar);
             this.Controls.Add(this.btGuardar);
             this.Controls.Add(this.lbEmail);
             this.Controls.Add(this.lbTelefono);
@@ -300,17 +315,17 @@
         private System.Windows.Forms.Label lbTelefono;
         private System.Windows.Forms.Label lbEmail;
         private System.Windows.Forms.Button btGuardar;
-        private System.Windows.Forms.Button btEliminar;
         private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.TextBox tbApellidos;
         private System.Windows.Forms.ProgressBar pbCompletado;
         private System.Windows.Forms.RadioButton rbHombre;
         private System.Windows.Forms.RadioButton rbMujer;
-        private System.Windows.Forms.ComboBox cbTipoDocumento;
         private System.Windows.Forms.TextBox tbDireccion;
         private System.Windows.Forms.TextBox tbTelefono;
         private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.MaskedTextBox mtbTipoDocumento;
+        private System.Windows.Forms.MaskedTextBox mtbDni;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
+        private System.Windows.Forms.Label lbTipoCliente;
+        private System.Windows.Forms.ComboBox cbTipoCliente;
     }
 }

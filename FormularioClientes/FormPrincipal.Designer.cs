@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.lbListadoClientes = new System.Windows.Forms.Label();
+            this.btNuevoCliente = new System.Windows.Forms.Button();
+            this.btEliminarCliente = new System.Windows.Forms.Button();
+            this.ColumnTipoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnApellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnFechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbListadoClientes = new System.Windows.Forms.Label();
-            this.btNuevoCliente = new System.Windows.Forms.Button();
-            this.btEliminarCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,21 +48,64 @@
             // 
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnTipoCliente,
             this.ColumnNombre,
             this.ColumnApellidos,
             this.ColumnSexo,
             this.ColumnFechaNacimiento,
-            this.ColumnTipoDocumento,
+            this.ColumnDni,
             this.ColumnDireccion,
             this.ColumnTelefono,
             this.ColumnEmail});
-            this.dgv.Location = new System.Drawing.Point(46, 248);
+            this.dgv.Location = new System.Drawing.Point(13, 129);
             this.dgv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv.Name = "dgv";
             this.dgv.RowHeadersWidth = 62;
-            this.dgv.Size = new System.Drawing.Size(1269, 231);
+            this.dgv.Size = new System.Drawing.Size(1214, 242);
             this.dgv.TabIndex = 0;
+            this.dgv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             this.dgv.DoubleClick += new System.EventHandler(this.dgv_DoubleClick);
+            // 
+            // lbListadoClientes
+            // 
+            this.lbListadoClientes.AutoSize = true;
+            this.lbListadoClientes.Location = new System.Drawing.Point(532, 20);
+            this.lbListadoClientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbListadoClientes.Name = "lbListadoClientes";
+            this.lbListadoClientes.Size = new System.Drawing.Size(122, 20);
+            this.lbListadoClientes.TabIndex = 1;
+            this.lbListadoClientes.Text = "Listado Clientes";
+            // 
+            // btNuevoCliente
+            // 
+            this.btNuevoCliente.BackColor = System.Drawing.SystemColors.Window;
+            this.btNuevoCliente.Location = new System.Drawing.Point(169, 70);
+            this.btNuevoCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btNuevoCliente.Name = "btNuevoCliente";
+            this.btNuevoCliente.Size = new System.Drawing.Size(212, 35);
+            this.btNuevoCliente.TabIndex = 2;
+            this.btNuevoCliente.Text = "Nuevo Cliente";
+            this.btNuevoCliente.UseVisualStyleBackColor = false;
+            this.btNuevoCliente.Click += new System.EventHandler(this.btNuevoCliente_Click);
+            // 
+            // btEliminarCliente
+            // 
+            this.btEliminarCliente.BackColor = System.Drawing.SystemColors.Window;
+            this.btEliminarCliente.Location = new System.Drawing.Point(826, 70);
+            this.btEliminarCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btEliminarCliente.Name = "btEliminarCliente";
+            this.btEliminarCliente.Size = new System.Drawing.Size(232, 35);
+            this.btEliminarCliente.TabIndex = 3;
+            this.btEliminarCliente.Text = "Eliminar Cliente";
+            this.btEliminarCliente.UseVisualStyleBackColor = false;
+            this.btEliminarCliente.Click += new System.EventHandler(this.btEliminarCliente_Click);
+            // 
+            // ColumnTipoCliente
+            // 
+            this.ColumnTipoCliente.HeaderText = "Tipo Cliente";
+            this.ColumnTipoCliente.MinimumWidth = 8;
+            this.ColumnTipoCliente.Name = "ColumnTipoCliente";
+            this.ColumnTipoCliente.Width = 150;
             // 
             // ColumnNombre
             // 
@@ -91,12 +135,12 @@
             this.ColumnFechaNacimiento.Name = "ColumnFechaNacimiento";
             this.ColumnFechaNacimiento.Width = 150;
             // 
-            // ColumnTipoDocumento
+            // ColumnDni
             // 
-            this.ColumnTipoDocumento.HeaderText = "Tipo de Documento";
-            this.ColumnTipoDocumento.MinimumWidth = 8;
-            this.ColumnTipoDocumento.Name = "ColumnTipoDocumento";
-            this.ColumnTipoDocumento.Width = 150;
+            this.ColumnDni.HeaderText = "Dni";
+            this.ColumnDni.MinimumWidth = 8;
+            this.ColumnDni.Name = "ColumnDni";
+            this.ColumnDni.Width = 150;
             // 
             // ColumnDireccion
             // 
@@ -119,43 +163,11 @@
             this.ColumnEmail.Name = "ColumnEmail";
             this.ColumnEmail.Width = 150;
             // 
-            // lbListadoClientes
-            // 
-            this.lbListadoClientes.AutoSize = true;
-            this.lbListadoClientes.Location = new System.Drawing.Point(584, 65);
-            this.lbListadoClientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbListadoClientes.Name = "lbListadoClientes";
-            this.lbListadoClientes.Size = new System.Drawing.Size(122, 20);
-            this.lbListadoClientes.TabIndex = 1;
-            this.lbListadoClientes.Text = "Listado Clientes";
-            // 
-            // btNuevoCliente
-            // 
-            this.btNuevoCliente.Location = new System.Drawing.Point(308, 151);
-            this.btNuevoCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btNuevoCliente.Name = "btNuevoCliente";
-            this.btNuevoCliente.Size = new System.Drawing.Size(212, 35);
-            this.btNuevoCliente.TabIndex = 2;
-            this.btNuevoCliente.Text = "Nuevo Cliente";
-            this.btNuevoCliente.UseVisualStyleBackColor = true;
-            this.btNuevoCliente.Click += new System.EventHandler(this.btNuevoCliente_Click);
-            // 
-            // btEliminarCliente
-            // 
-            this.btEliminarCliente.Location = new System.Drawing.Point(747, 152);
-            this.btEliminarCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btEliminarCliente.Name = "btEliminarCliente";
-            this.btEliminarCliente.Size = new System.Drawing.Size(232, 35);
-            this.btEliminarCliente.TabIndex = 3;
-            this.btEliminarCliente.Text = "Eliminar Cliente";
-            this.btEliminarCliente.UseVisualStyleBackColor = true;
-            this.btEliminarCliente.Click += new System.EventHandler(this.btEliminarCliente_Click);
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1533, 692);
+            this.ClientSize = new System.Drawing.Size(1240, 473);
             this.Controls.Add(this.btEliminarCliente);
             this.Controls.Add(this.btNuevoCliente);
             this.Controls.Add(this.lbListadoClientes);
@@ -173,16 +185,17 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.Label lbListadoClientes;
+        private System.Windows.Forms.Button btNuevoCliente;
+        private System.Windows.Forms.Button btEliminarCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTipoCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnApellidos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSexo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFechaNacimiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTipoDocumento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDni;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDireccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEmail;
-        private System.Windows.Forms.Label lbListadoClientes;
-        private System.Windows.Forms.Button btNuevoCliente;
-        private System.Windows.Forms.Button btEliminarCliente;
     }
 }
